@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --pn-deep: #1E1356;
+    --pn-purple: #4B2E83;
+    --pn-violet: #7B5EA7;
+    --pn-lavender: #C8BAE5;
+    --pn-pale: #EDE8F6;
+    --pn-cream: #FAF7FF;
+    --pn-gold: #F9C846;
+    --pn-mint: #D4F0E8;
+    --pn-coral: #FFE4E1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--pn-cream);
+    color: var(--pn-deep);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', 'Nunito', sans-serif;
+    font-weight: 700;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .section-base {
+    @apply px-6 py-20 md:px-12 lg:px-20 xl:px-28;
+  }
+
+  .card-base {
+    @apply rounded-2xl border border-pn-lavender/40 bg-white shadow-sm;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-600;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl bg-pn-purple px-6 py-3 text-sm font-700 text-white shadow-lg shadow-pn-purple/25 transition-all hover:bg-pn-deep hover:shadow-pn-purple/40 hover:shadow-xl active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-xl border-2 border-pn-purple/30 bg-transparent px-6 py-3 text-sm font-700 text-pn-purple transition-all hover:border-pn-purple hover:bg-pn-pale active:scale-95;
+  }
+
+  .kpi-card {
+    @apply flex flex-col items-center justify-center gap-1 rounded-2xl p-5 text-center;
+  }
+
+  .section-kicker {
+    @apply inline-flex items-center gap-2 rounded-full border border-pn-lavender bg-pn-pale px-4 py-1.5 text-xs font-700 uppercase tracking-wider text-pn-purple;
+  }
+}
+
+@layer utilities {
+  .font-600 { font-weight: 600; }
+  .font-700 { font-weight: 700; }
+  .font-800 { font-weight: 800; }
+  .font-900 { font-weight: 900; }
+
+  .text-balance { text-wrap: balance; }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4B2E83, #C8BAE5);
+  z-index: 9999;
+  transform-origin: left;
+}
+
+/* Radix UI overrides */
+[data-radix-slider-thumb] {
+  @apply cursor-grab active:cursor-grabbing;
+}
